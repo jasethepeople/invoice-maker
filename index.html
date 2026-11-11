@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invoice Maker — invoices in minutes, no account needed</title>
+<link rel="stylesheet" href="./style.css">
+<meta name="description" content="Build, save, print, and export invoices from your browser. No account, no server.">
+</head>
+<body>
+<a href="#invoice">Skip to the invoice</a>
+<header>
+<h1>Invoice Maker</h1>
+<p>Build an invoice, save it in your browser, print it, or export it. No account, no server, nothing leaves your device.</p>
+<section>
+<h2>Pro</h2>
+<p id="pro-status">Free version: 5 saved invoices, no templates, no logo. Pro unlocks unlimited invoices, templates, and logo.</p>
+<label for="license-key">License key</label>
+<input type="text" id="license-key">
+<button id="unlock-pro" type="button">Unlock Pro</button>
+<p><a id="buy-pro" href="LEMON_SQUEEZY_BUY_LINK_HERE">Get Pro — $4.99 one-time</a></p>
+<p>After purchase, Lemon Squeezy emails your license key. Paste it above to unlock Pro on this device.</p>
+</section>
+</header>
+<main id="invoice">
+<p>This page needs JavaScript for totals, saving, and printing. Without it you can read this page, but the invoice will not calculate.</p>
+<section>
+<label for="business-name">Your business name</label>
+<input type="text" id="business-name">
+<label for="logo-file">Business logo (Pro)</label>
+<input type="file" id="logo-file" accept="image/*">
+<img id="logo-preview" alt="" hidden>
+<label for="client-name">Bill to (client)</label>
+<input type="text" id="client-name">
+<label for="invoice-number">Invoice number</label>
+<input type="text" id="invoice-number" readonly>
+<label for="invoice-date">Date</label>
+<input type="date" id="invoice-date">
+</section>
+<section>
+<h2>Line items</h2>
+<table>
+<caption>Line items</caption>
+<thead>
+<tr>
+<th>Description</th>
+<th>Qty</th>
+<th>Unit price</th>
+<th>Amount</th>
+<th></th>
+</tr>
+</thead>
+<tbody id="items-body"></tbody>
+</table>
+<button id="add-item" type="button">Add line item</button>
+</section>
+<section>
+<label for="tax-rate">Tax %</label>
+<input type="number" id="tax-rate" value="0" min="0" step="any">
+<p>Subtotal: <span id="subtotal-amount">$0.00</span></p>
+<p>Tax: <span id="tax-amount">$0.00</span></p>
+<p>Total: <strong><span id="total-amount">$0.00</span></strong></p>
+</section>
+<section>
+<label for="notes">Notes</label>
+<textarea id="notes" rows="3"></textarea>
+</section>
+<section>
+<h2>Templates (Pro)</h2>
+<label for="template-name">Template name</label>
+<input type="text" id="template-name">
+<button id="save-template" type="button">Save template</button>
+<div id="templates-list"><p>No templates yet.</p></div>
+</section>
+<section>
+<button id="save-invoice" type="button">Save invoice</button>
+<button id="new-invoice" type="button">New invoice</button>
+<button id="print-invoice" type="button">Print</button>
+<button id="export-json" type="button">Export</button>
+<p id="save-result"></p>
+</section>
+<section>
+<h2>Saved invoices</h2>
+<div id="saved-list"><p>No saved invoices yet.</p></div>
+</section>
+</main>
+<footer>
+<p>Your invoices live only in this browser unless you export them. <span id="year"></span></p>
+</footer>
+<script src="./app.js"></script>
+</body>
+</html>
